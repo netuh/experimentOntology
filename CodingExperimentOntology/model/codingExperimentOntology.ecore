@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="codingExperimentOntology" nsURI="http://www.example.org/codingExperimentOntology"
+    nsPrefix="codingExperimentOntology">
+  <eClassifiers xsi:type="ecore:EClass" name="CodingExperimentalStudy" eSuperTypes="../../ExperimentOntology/model/experimentOntology.ecore#//ExperimentalStudy"/>
+  <eSubpackages name="variables" nsURI="variables" nsPrefix="variables">
+    <eClassifiers xsi:type="ecore:EClass" name="CodingDependentVariable" abstract="true"
+        eSuperTypes="../../ExperimentOntology/model/experimentOntology.ecore#//planning/DependentVariable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="CodingIndependentVariable" abstract="true"
+        eSuperTypes="../../ExperimentOntology/model/experimentOntology.ecore#//planning/IndependentVariable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="TimeBoundVariable" eSuperTypes="#//variables/CodingDependentVariable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="timeMonitor" upperBound="-1"
+          eType="#//apparatus/TimeMonitorInstrument"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceBasedVariable" eSuperTypes="#//variables/TimeBoundVariable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceMonitor" lowerBound="1"
+          upperBound="-1" eType="#//apparatus/ResourceMonitorInstrument"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AwnserBasedVariable" eSuperTypes="#//variables/TimeBoundVariable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="questionnaire" lowerBound="1"
+          upperBound="-1" eType="#//apparatus/Questionnaire"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ArtifactIndependentVariable" eSuperTypes="#//variables/CodingIndependentVariable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="codingartifact" lowerBound="1"
+          upperBound="-1" eType="#//apparatus/CodingArtifact"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EnviromentIndependentVariable" eSuperTypes="#//variables/CodingIndependentVariable">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//variables/CommonVariableTypes"
+          defaultValueLiteral="tool"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OtherCodingVariable" eSuperTypes="#//variables/CodingIndependentVariable"/>
+    <eClassifiers xsi:type="ecore:EEnum" name="CommonVariableTypes">
+      <eLiterals name="environment"/>
+      <eLiterals name="tool" value="1"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="tasks" nsURI="tasks" nsPrefix="tasks">
+    <eClassifiers xsi:type="ecore:EClass" name="CodingTask" abstract="true" eSuperTypes="../../ExperimentOntology/model/experimentOntology.ecore#//operation/ExperimentalTasks"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ConventionalCodingTask" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="taskType" eType="#//tasks/CodingTaskTypes"
+          defaultValueLiteral="writing"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredArtifact" upperBound="-1"
+          eType="#//apparatus/CodingArtifact"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="producedArtifact" upperBound="-1"
+          eType="#//apparatus/CodingArtifact"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GenericCodingTask" eSuperTypes="#//tasks/CodingTask"/>
+    <eClassifiers xsi:type="ecore:EClass" name="CodingPreTask" abstract="true" eSuperTypes="../../ExperimentOntology/model/experimentOntology.ecore#//operation/PreTasks"/>
+    <eClassifiers xsi:type="ecore:EClass" name="TrainingClass" eSuperTypes="#//tasks/CodingPreTask"/>
+    <eClassifiers xsi:type="ecore:EClass" name="PilotTask" eSuperTypes="#//tasks/CodingPreTask #//tasks/ConventionalCodingTask"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ExperimentalCodingTask" eSuperTypes="#//tasks/ConventionalCodingTask #//tasks/CodingTask"/>
+    <eClassifiers xsi:type="ecore:EEnum" name="CodingTaskTypes">
+      <eLiterals name="maintenance"/>
+      <eLiterals name="writing" value="1"/>
+      <eLiterals name="inspection" value="2"/>
+      <eLiterals name="testing" value="3"/>
+      <eLiterals name="compreension" value="4"/>
+      <eLiterals name="debbuing" value="5"/>
+      <eLiterals name="design" value="6"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="threats" nsURI="threats" nsPrefix="threats">
+    <eClassifiers xsi:type="ecore:EClass" name="IndividualBackground" abstract="true"
+        eSuperTypes="../../ExperimentOntology/model/experimentOntology.ecore#//planning/threats/Threat"/>
+    <eClassifiers xsi:type="ecore:EClass" name="IndividualKnolegment" abstract="true"
+        eSuperTypes="../../ExperimentOntology/model/experimentOntology.ecore#//planning/threats/Threat"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SubjectRelated" abstract="true" eSuperTypes="../../ExperimentOntology/model/experimentOntology.ecore#//planning/threats/Threat"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Technical" abstract="true" eSuperTypes="../../ExperimentOntology/model/experimentOntology.ecore#//planning/threats/Threat"/>
+    <eClassifiers xsi:type="ecore:EClass" name="StudyObjectRelated" abstract="true"
+        eSuperTypes="../../ExperimentOntology/model/experimentOntology.ecore#//planning/threats/Threat"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Gender" eSuperTypes="#//threats/IndividualBackground"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Inteligence" eSuperTypes="#//threats/IndividualBackground"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ColorBlind" eSuperTypes="#//threats/IndividualBackground"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Culture" eSuperTypes="#//threats/IndividualBackground"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Ability" eSuperTypes="#//threats/IndividualKnolegment"/>
+    <eClassifiers xsi:type="ecore:EClass" name="FamiliarityWithObject" eSuperTypes="#//threats/IndividualKnolegment"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DomainKnolegment" eSuperTypes="#//threats/IndividualKnolegment"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ProgrammingExperience"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ReadingTime" eSuperTypes="#//threats/IndividualKnolegment"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Fadigue" eSuperTypes="#//threats/IndividualKnolegment"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Motivation" eSuperTypes="#//threats/IndividualKnolegment"/>
+    <eClassifiers xsi:type="ecore:EClass" name="TreatmentPreference" eSuperTypes="#//threats/IndividualKnolegment"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Education" eSuperTypes="#//threats/IndividualKnolegment"/>
+    <eClassifiers xsi:type="ecore:EClass" name="FamiliarityWithTool" eSuperTypes="#//threats/IndividualKnolegment"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AvaluationApprehension" eSuperTypes="#//threats/SubjectRelated"/>
+    <eClassifiers xsi:type="ecore:EClass" name="HawthroneEffect" eSuperTypes="#//threats/SubjectRelated"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ProcessConformance" eSuperTypes="#//threats/SubjectRelated"/>
+    <eClassifiers xsi:type="ecore:EClass" name="StudyObjectCoverange" eSuperTypes="#//threats/SubjectRelated"/>
+    <eClassifiers xsi:type="ecore:EClass" name="TiesToPersistMemory" eSuperTypes="#//threats/SubjectRelated"/>
+    <eClassifiers xsi:type="ecore:EClass" name="TimePressure" eSuperTypes="#//threats/SubjectRelated"/>
+    <eClassifiers xsi:type="ecore:EClass" name="VisualEffort" eSuperTypes="#//threats/SubjectRelated"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DataConsistency" eSuperTypes="#//threats/Technical"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Instrumentation" eSuperTypes="#//threats/Technical"/>
+    <eClassifiers xsi:type="ecore:EClass" name="MonoOperationBias" eSuperTypes="#//threats/Technical"/>
+    <eClassifiers xsi:type="ecore:EClass" name="MonoMethodBias" eSuperTypes="#//threats/Technical"/>
+    <eClassifiers xsi:type="ecore:EClass" name="TechinicalProblem" eSuperTypes="#//threats/Technical"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ContexRelated" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="LearningEffects" eSuperTypes="#//threats/ContexRelated"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Mortality" eSuperTypes="#//threats/ContexRelated"/>
+    <eClassifiers xsi:type="ecore:EClass" name="NewEClass36" eSuperTypes="#//threats/ContexRelated"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Ordering" eSuperTypes="#//threats/ContexRelated"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Rosenthal" eSuperTypes="#//threats/ContexRelated"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Selection" eSuperTypes="#//threats/ContexRelated"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ContentOfStudyObject" eSuperTypes="#//threats/StudyObjectRelated"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Language" eSuperTypes="#//threats/StudyObjectRelated"/>
+    <eClassifiers xsi:type="ecore:EClass" name="LayoutStudyObject" eSuperTypes="#//threats/StudyObjectRelated"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SizeOfStudyObjects" eSuperTypes="#//threats/StudyObjectRelated"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Tasks" eSuperTypes="#//threats/StudyObjectRelated"/>
+    <eClassifiers xsi:type="ecore:EClass" name="GenericMitigable" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="generalActions" upperBound="-1"
+          eType="#//threats/GenericMitigation" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ReviewableMitigation" abstract="true"
+        eSuperTypes="#//threats/GenericMitigable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
+          eType="#//threats/MitigatingByReviewing" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AskableMitigation" abstract="true"
+        eSuperTypes="#//threats/GenericMitigable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
+          eType="#//threats/MitigatingByAsking" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GenericMitigation"/>
+    <eClassifiers xsi:type="ecore:EClass" name="MitigatingByAsking">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="question" lowerBound="1"
+          upperBound="-1" eType="#//apparatus/Question"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MitigatingByReviewing"/>
+  </eSubpackages>
+  <eSubpackages name="apparatus" nsURI="apparatus" nsPrefix="apparatus">
+    <eClassifiers xsi:type="ecore:EClass" name="CodignApparatus" abstract="true" eSuperTypes="../../ExperimentOntology/model/experimentOntology.ecore#//planning/Apparatus"/>
+    <eClassifiers xsi:type="ecore:EClass" name="CodingArtifact" eSuperTypes="#//apparatus/CodignApparatus ../../ExperimentOntology/model/experimentOntology.ecore#//planning/Artifact">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//apparatus/CodingArtifactTypes"
+          defaultValueLiteral="sourceCode"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CodingInstrument" abstract="true"
+        eSuperTypes="#//apparatus/CodignApparatus ../../ExperimentOntology/model/experimentOntology.ecore#//planning/Artifact"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceMonitorInstrument" eSuperTypes="#//apparatus/CodingInstrument">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+          upperBound="-1" eType="#//apparatus/CodingArtifact"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="creation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="modification" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="delete" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TimeMonitorInstrument" abstract="true"
+        eSuperTypes="#//apparatus/CodingInstrument"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Questionnaire" abstract="true" eSuperTypes="#//apparatus/CodingInstrument">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="questions" lowerBound="1"
+          upperBound="-1" eType="#//apparatus/Question" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="allocation" eType="#//apparatus/QuestionnarieAllocation"
+          defaultValueLiteral="before"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TimeMonitorByResource" eSuperTypes="#//apparatus/TimeMonitorInstrument">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="artifact" lowerBound="1"
+          upperBound="-1" eType="#//apparatus/CodingArtifact"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TimeMonitorByTask" eSuperTypes="#//apparatus/TimeMonitorInstrument #//apparatus/TaskRelated"/>
+    <eClassifiers xsi:type="ecore:EClass" name="TimeMonitorByProcess" eSuperTypes="#//apparatus/TimeMonitorInstrument #//apparatus/ProcessRelated"/>
+    <eClassifiers xsi:type="ecore:EEnum" name="CodingArtifactTypes">
+      <eLiterals name="sourceCode"/>
+      <eLiterals name="test" value="1"/>
+      <eLiterals name="document" value="2"/>
+      <eLiterals name="description" value="3"/>
+      <eLiterals name="others" value="4"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TaskRelated" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="1"
+          upperBound="-1" eType="#//tasks/CodingTask"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ProcessRelated" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="QuestionaryByTask" eSuperTypes="#//apparatus/TaskRelated #//apparatus/Questionnaire"/>
+    <eClassifiers xsi:type="ecore:EClass" name="QuestionnaireByProcess" eSuperTypes="#//apparatus/ProcessRelated #//apparatus/Questionnaire"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Question" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="enunciation" lowerBound="1"
+          eType="#//apparatus/QuestionContent" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="QuestionContent"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Field" eSuperTypes="#//apparatus/Question">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//apparatus/FieldTypes"
+          defaultValueLiteral="text"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Choice" eSuperTypes="#//apparatus/Question">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="choices" lowerBound="2"
+          upperBound="-1" eType="#//apparatus/QuestionContent" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//apparatus/ChoiceTypes"
+          defaultValueLiteral="unique"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="QuestionnarieAllocation">
+      <eLiterals name="before" literal="before"/>
+      <eLiterals name="after" value="1"/>
+      <eLiterals name="during" value="2"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="ChoiceTypes">
+      <eLiterals name="unique"/>
+      <eLiterals name="multi" value="1"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="FieldTypes">
+      <eLiterals name="text"/>
+      <eLiterals name="paragraph" value="1"/>
+      <eLiterals name="number" value="2"/>
+      <eLiterals name="date" value="3"/>
+    </eClassifiers>
+  </eSubpackages>
+</ecore:EPackage>
