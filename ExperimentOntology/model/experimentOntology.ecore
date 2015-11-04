@@ -106,65 +106,26 @@
   </eSubpackages>
   <eSubpackages name="planning" nsURI="http://www.example.org/planning" nsPrefix="planning">
     <eClassifiers xsi:type="ecore:EClass" name="DependentVariable" abstract="true"/>
-    <eClassifiers xsi:type="ecore:EClass" name="ExperimentalPlan" abstract="true">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="threats" eType="#//planning/threats/Threats"
-          containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="samplingstrategy" eType="#//planning/sampling/SamplingStrategy"
-          containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="apparatus" eType="#//planning/PiecesOfApparatus"
-          containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="dependentVariables" lowerBound="1"
-          eType="#//planning/DependentVariables" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="independentvariables"
-          eType="#//planning/IndependentVariables" containment="true"/>
-    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IndependentVariable" abstract="true"/>
     <eClassifiers xsi:type="ecore:EClass" name="Apparatus" abstract="true"/>
     <eClassifiers xsi:type="ecore:EClass" name="Artifact" abstract="true" eSuperTypes="#//planning/Apparatus"/>
     <eClassifiers xsi:type="ecore:EClass" name="Instrument" abstract="true" eSuperTypes="#//planning/Apparatus"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Factor" abstract="true"/>
-    <eClassifiers xsi:type="ecore:EClass" name="DualTreatmentFactor" eSuperTypes="#//planning/Factor">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="treatments" lowerBound="2"
-          upperBound="2" eType="#//planning/Treatment" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="MultiTreatmentFactor" eSuperTypes="#//planning/Factor">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="treatments" lowerBound="3"
-          upperBound="-1" eType="#//planning/Treatment" containment="true"/>
-    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Treatment"/>
-    <eClassifiers xsi:type="ecore:EClass" name="MonoFactorTreatmentPlan" eSuperTypes="#//planning/ExperimentalPlan">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="design" lowerBound="1"
-          eType="#//planning/designOfExperiment/TwoTreatmentDesign" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="factor" lowerBound="1"
-          eType="#//planning/DualTreatmentFactor" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="DualFactorPlan" eSuperTypes="#//planning/ExperimentalPlan">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="factor" lowerBound="2"
-          upperBound="2" eType="#//planning/Factor" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="design" lowerBound="1"
-          eType="#//planning/designOfExperiment/TwoFactorDesign" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="TernaryFactorPlan" eSuperTypes="#//planning/ExperimentalPlan">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="factors" lowerBound="3"
-          upperBound="-1" eType="#//planning/DualTreatmentFactor" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="design" lowerBound="1"
-          eType="#//planning/designOfExperiment/TriFactorDesign" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="GenericPlan" eSuperTypes="#//planning/ExperimentalPlan">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="factors" lowerBound="1"
-          upperBound="-1" eType="#//planning/Factor" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="design" lowerBound="1"
-          eType="#//planning/designOfExperiment/GenericDesign" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="MonoFactorMultTreatmentPlan" eSuperTypes="#//planning/ExperimentalPlan">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="factor" lowerBound="1"
-          eType="#//planning/MultiTreatmentFactor" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="design" lowerBound="1"
-          eType="#//planning/designOfExperiment/MultTreatmentDesign" containment="true"/>
-    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ExperimentalPlanDescription">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="plan" lowerBound="1"
-          eType="#//planning/ExperimentalPlan" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="apparatus" eType="#//planning/PiecesOfApparatus"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="independentVariables"
+          eType="#//planning/IndependentVariables" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="dependentVariables" lowerBound="1"
+          eType="#//planning/DependentVariables" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="factors" lowerBound="1"
+          eType="#//planning/Factors" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="threats" eType="#//planning/threats/Threats"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="sampling" eType="#//planning/sampling/SamplingDescription"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="design" lowerBound="1"
+          eType="#//planning/designOfExperiment/DesignDescription" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PiecesOfApparatus">
       <eStructuralFeatures xsi:type="ecore:EReference" name="components" lowerBound="1"
@@ -177,6 +138,23 @@
     <eClassifiers xsi:type="ecore:EClass" name="DependentVariables">
       <eStructuralFeatures xsi:type="ecore:EReference" name="variables" lowerBound="1"
           upperBound="-1" eType="#//planning/DependentVariable" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Factors" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="TwoFactors" eSuperTypes="#//planning/Factors">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="factors" lowerBound="2"
+          upperBound="2" eType="#//planning/Factor" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UniqueFactor" eSuperTypes="#//planning/Factors">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="factor" lowerBound="1"
+          eType="#//planning/Factor" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TreeMoreFactors" eSuperTypes="#//planning/Factors">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="factors" lowerBound="3"
+          upperBound="-1" eType="#//planning/Factor" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Factor">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="treatments" lowerBound="2"
+          upperBound="-1" eType="#//planning/Treatment" containment="true"/>
     </eClassifiers>
     <eSubpackages name="threats" nsURI="http://www.example.org/threats" nsPrefix="threats">
       <eClassifiers xsi:type="ecore:EClass" name="Threats">
@@ -226,7 +204,9 @@
       <eClassifiers xsi:type="ecore:EClass" name="ConfoundingConstruct" eSuperTypes="#//planning/threats/ConstructTreat"/>
       <eClassifiers xsi:type="ecore:EClass" name="MonoOperationBias" eSuperTypes="#//planning/threats/ConstructTreat"/>
       <eClassifiers xsi:type="ecore:EClass" name="InteractionOfDifferents" eSuperTypes="#//planning/threats/ConstructTreat"/>
-      <eClassifiers xsi:type="ecore:EClass" name="MitigationAction"/>
+      <eClassifiers xsi:type="ecore:EClass" name="MitigationAction">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//planning/Apparatus"/>
+      </eClassifiers>
     </eSubpackages>
     <eSubpackages name="sampling" nsURI="http://www.example.org/sampling" nsPrefix="sampling">
       <eClassifiers xsi:type="ecore:EClass" name="SamplingStrategy" abstract="true"/>
@@ -244,52 +224,60 @@
       <eClassifiers xsi:type="ecore:EClass" name="ConvenienceSampling" eSuperTypes="#//planning/sampling/NoProbabilityTechinique"/>
       <eClassifiers xsi:type="ecore:EClass" name="QuoteSampling" eSuperTypes="#//planning/sampling/NoProbabilityTechinique"/>
       <eClassifiers xsi:type="ecore:EClass" name="PopulationDescription"/>
+      <eClassifiers xsi:type="ecore:EClass" name="SamplingDescription">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="strategy" lowerBound="1"
+            eType="#//planning/sampling/SamplingStrategy" containment="true"/>
+      </eClassifiers>
     </eSubpackages>
-    <eSubpackages name="designOfExperiment" nsURI="http://www.example.org/designOfExperiment"
-        nsPrefix="designOfExperiment">
+    <eSubpackages name="designOfExperiment" nsURI="designOfExperiment" nsPrefix="designOfExperiment">
+      <eClassifiers xsi:type="ecore:EClass" name="DesignDescription">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="design" lowerBound="1"
+            eType="#//planning/designOfExperiment/DesignType" containment="true"/>
+      </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="DesignType" abstract="true">
-        <eStructuralFeatures xsi:type="ecore:EReference" name="discipline" lowerBound="1"
-            eType="#//planning/designOfExperiment/DesignDiscipline" containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="isBalanced" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+            defaultValueLiteral="false"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="DesignDiscipline" abstract="true"/>
-      <eClassifiers xsi:type="ecore:EClass" name="RandomizedDiscipline" eSuperTypes="#//planning/designOfExperiment/DesignDiscipline"/>
-      <eClassifiers xsi:type="ecore:EClass" name="BlockDesignDiscipline" eSuperTypes="#//planning/designOfExperiment/DesignDiscipline">
+      <eClassifiers xsi:type="ecore:EClass" name="UniqueFactorDesign" abstract="true">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="factor" lowerBound="1"
+            eType="#//planning/UniqueFactor"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="CompleteRandomizedDesign" eSuperTypes="#//planning/designOfExperiment/Blockable #//planning/designOfExperiment/UniqueFactorDesign"/>
+      <eClassifiers xsi:type="ecore:EClass" name="RandomizedCompleteBlockDesign" eSuperTypes="#//planning/designOfExperiment/RequiredBlock #//planning/designOfExperiment/UniqueFactorDesign"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Blockable" abstract="true" eSuperTypes="#//planning/designOfExperiment/DesignType">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="block" upperBound="-1"
+            eType="#//planning/designOfExperiment/Block" containment="true"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="RequiredBlock" abstract="true" eSuperTypes="#//planning/designOfExperiment/DesignType">
         <eStructuralFeatures xsi:type="ecore:EReference" name="block" lowerBound="1"
-            upperBound="-1" eType="#//planning/designOfExperiment/BlockedCharacteristic"
-            containment="true"/>
+            upperBound="-1" eType="#//planning/designOfExperiment/Block" containment="true"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="BalancedDesignDiscipline" eSuperTypes="#//planning/designOfExperiment/BlockDesignDiscipline"/>
-      <eClassifiers xsi:type="ecore:EClass" name="BlockedCharacteristic">
-        <eStructuralFeatures xsi:type="ecore:EReference" name="threat" eType="#//planning/threats/Threat"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Block">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="blockedVariable" lowerBound="1"
+            eType="#//planning/IndependentVariable"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="OneFactorDesign" abstract="true"
-          eSuperTypes="#//planning/designOfExperiment/DesignType"/>
-      <eClassifiers xsi:type="ecore:EClass" name="TwoTreatmentDesign" eSuperTypes="#//planning/designOfExperiment/OneFactorDesign"/>
-      <eClassifiers xsi:type="ecore:EClass" name="MultTreatmentDesign" eSuperTypes="#//planning/designOfExperiment/OneFactorDesign"/>
       <eClassifiers xsi:type="ecore:EClass" name="TwoFactorDesign" abstract="true"
-          eSuperTypes="#//planning/designOfExperiment/DesignType"/>
-      <eClassifiers xsi:type="ecore:EClass" name="SquareDesign" eSuperTypes="#//planning/designOfExperiment/TwoFactorDesign">
-        <eStructuralFeatures xsi:type="ecore:EReference" name="column" lowerBound="1"
-            eType="#//planning/Factor"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="line" lowerBound="1"
-            eType="#//planning/Factor"/>
+          eSuperTypes="#//planning/designOfExperiment/Blockable">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="factors" lowerBound="1"
+            eType="#//planning/TwoFactors"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="NestedFactorDesign" eSuperTypes="#//planning/designOfExperiment/TwoFactorDesign">
-        <eStructuralFeatures xsi:type="ecore:EReference" name="stageOne" lowerBound="1"
-            eType="#//planning/Factor"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="stageTwo" lowerBound="1"
-            eType="#//planning/Factor"/>
+      <eClassifiers xsi:type="ecore:EClass" name="TwoAndTwoFactorialDesign" eSuperTypes="#//planning/designOfExperiment/TwoFactorDesign"/>
+      <eClassifiers xsi:type="ecore:EClass" name="TwoStageDesign" eSuperTypes="#//planning/designOfExperiment/TwoFactorDesign"/>
+      <eClassifiers xsi:type="ecore:EClass" name="TreeMoreDesign" abstract="true"
+          eSuperTypes="#//planning/designOfExperiment/Blockable">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="factors" lowerBound="1"
+            eType="#//planning/TreeMoreFactors"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="TriFactorDesign" eSuperTypes="#//planning/designOfExperiment/DesignType">
-        <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//planning/designOfExperiment/TriFactorTypes"
-            defaultValueLiteral="TwoK"/>
+      <eClassifiers xsi:type="ecore:EClass" name="TwoKFactorialDesign" eSuperTypes="#//planning/designOfExperiment/TreeMoreDesign"/>
+      <eClassifiers xsi:type="ecore:EClass" name="TwoKFractionalFactorialDesign" eSuperTypes="#//planning/designOfExperiment/TreeMoreDesign">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
+            eType="#//planning/designOfExperiment/TwoKFractionalTypes" defaultValueLiteral="OneHalf"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EEnum" name="TriFactorTypes">
-        <eLiterals name="TwoK"/>
-        <eLiterals name="HalfTwoK" value="1"/>
-        <eLiterals name="QuarterTwoK" value="2"/>
+      <eClassifiers xsi:type="ecore:EEnum" name="TwoKFractionalTypes">
+        <eLiterals name="OneHalf"/>
+        <eLiterals name="OneQuarter" value="1"/>
+        <eLiterals name="Other" value="2"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="GenericDesign" eSuperTypes="#//planning/designOfExperiment/DesignType"/>
     </eSubpackages>
   </eSubpackages>
   <eSubpackages name="operation" nsURI="http://www.example.org/operation" nsPrefix="operation">
