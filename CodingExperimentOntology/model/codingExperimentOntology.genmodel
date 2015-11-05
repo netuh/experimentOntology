@@ -165,14 +165,10 @@
             ecoreFeature="ecore:EReference codingExperimentOntology.ecore#//apparatus/TimeMonitorByResource/artifact"/>
       </genClasses>
       <genClasses ecoreClass="codingExperimentOntology.ecore#//apparatus/TimeMonitorByTask"/>
-      <genClasses ecoreClass="codingExperimentOntology.ecore#//apparatus/TimeMonitorByProcess"/>
       <genClasses ecoreClass="codingExperimentOntology.ecore#//apparatus/TaskRelated">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference codingExperimentOntology.ecore#//apparatus/TaskRelated/task"/>
       </genClasses>
-      <genClasses ecoreClass="codingExperimentOntology.ecore#//apparatus/ProcessRelated"/>
-      <genClasses ecoreClass="codingExperimentOntology.ecore#//apparatus/QuestionaryByTask"/>
-      <genClasses ecoreClass="codingExperimentOntology.ecore#//apparatus/QuestionnaireByProcess"/>
       <genClasses ecoreClass="codingExperimentOntology.ecore#//apparatus/Question">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codingExperimentOntology.ecore#//apparatus/Question/enunciation"/>
       </genClasses>
@@ -193,88 +189,127 @@
     </genClasses>
     <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//Experiment">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//Experiment/plan"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//Experiment/operation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//Experiment/executionPlan"/>
     </genClasses>
     <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//Replication">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//Replication/original"/>
     </genClasses>
     <nestedGenPackages prefix="Description" disposableProviderFactory="true" ecorePackage="../../ExperimentOntology/model/experimentOntology.ecore#//description">
       <genClasses image="false" ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//description/Describable">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//description/Describable/author"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//description/Describable/abstract"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//description/Describable/keyword"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//description/Describable/keywords"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//description/Describable/authorship"/>
       </genClasses>
       <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//description/Author"/>
       <genClasses image="false" ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//description/Abstract"/>
       <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//description/SimpleAbstract"/>
       <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//description/StructuredAbstract"/>
-      <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//description/Keyword"/>
+      <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//description/Keywords">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//description/Keywords/content"/>
+      </genClasses>
       <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//description/TraditionalDescription">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//description/TraditionalDescription/questions"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//description/TraditionalDescription/hypothesis"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//description/TraditionalDescription/goals"/>
       </genClasses>
-      <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//description/ResearchQuestion"/>
+      <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//description/Questions">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//description/Questions/researchQuestions"/>
+      </genClasses>
       <genClasses image="false" ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//description/Goal"/>
-      <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//description/ResearchHypothesis"/>
+      <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//description/ResearchHypotheses">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//description/ResearchHypotheses/hypotheses"/>
+      </genClasses>
       <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//description/SimpleGoal"/>
       <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//description/StructuredGoal"/>
+      <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//description/Description">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//description/Description/description"/>
+      </genClasses>
+      <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//description/Authors">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//description/Authors/author"/>
+      </genClasses>
+      <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//description/Keyword"/>
+      <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//description/SimpleResearchQuestion"/>
+      <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//description/SimpleHypothesis"/>
+      <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//description/Goals">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//description/Goals/goal"/>
+      </genClasses>
       <nestedGenPackages prefix="Gqm" disposableProviderFactory="true" ecorePackage="../../ExperimentOntology/model/experimentOntology.ecore#//description/gqm">
         <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//description/gqm/GQMDescription">
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//description/gqm/GQMDescription/goals"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//description/gqm/GQMDescription/questions"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//description/gqm/GQMDescription/metrics"/>
         </genClasses>
         <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//description/gqm/GoalGQM">
-          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//description/gqm/GoalGQM/questions"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//description/gqm/GoalGQM/relatedQuestion"/>
         </genClasses>
         <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//description/gqm/QuestionGQM">
-          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//description/gqm/QuestionGQM/metrics"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//description/gqm/QuestionGQM/relatedMetric"/>
         </genClasses>
         <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//description/gqm/MetricGQM">
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
               ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//description/gqm/MetricGQM/relatedVariable"/>
         </genClasses>
+        <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//description/gqm/Goals">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//description/gqm/Goals/goal"/>
+        </genClasses>
+        <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//description/gqm/Questions">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//description/gqm/Questions/question"/>
+        </genClasses>
+        <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//description/gqm/Metrics">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//description/gqm/Metrics/metric"/>
+        </genClasses>
       </nestedGenPackages>
     </nestedGenPackages>
     <nestedGenPackages prefix="Planning" disposableProviderFactory="true" ecorePackage="../../ExperimentOntology/model/experimentOntology.ecore#//planning">
-      <genClasses image="false" ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/DependentVariable"/>
-      <genClasses image="false" ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/ExperimentalPlan">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/ExperimentalPlan/threats"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/ExperimentalPlan/samplingstrategy"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/ExperimentalPlan/dependentVariables"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/ExperimentalPlan/independentVariables"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/ExperimentalPlan/apparatus"/>
+      <genClasses image="false" ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/DependentVariable">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/DependentVariable/hypotheses"/>
       </genClasses>
       <genClasses image="false" ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/IndependentVariable"/>
       <genClasses image="false" ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/Apparatus"/>
       <genClasses image="false" ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/Artifact"/>
       <genClasses image="false" ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/Instrument"/>
-      <genClasses image="false" ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/Factor"/>
-      <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/DualTreatmentFactor">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/DualTreatmentFactor/treatments"/>
-      </genClasses>
-      <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/MultiTreatmentFactor">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/MultiTreatmentFactor/treatments"/>
-      </genClasses>
       <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/Treatment"/>
-      <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/MonoFactorTreatmentPlan">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/MonoFactorTreatmentPlan/design"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/MonoFactorTreatmentPlan/factor"/>
+      <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/ExperimentalPlanDescription">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/ExperimentalPlanDescription/apparatus"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/ExperimentalPlanDescription/independentVariables"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/ExperimentalPlanDescription/dependentVariables"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/ExperimentalPlanDescription/factors"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/ExperimentalPlanDescription/threats"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/ExperimentalPlanDescription/sampling"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/ExperimentalPlanDescription/design"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/ExperimentalPlanDescription/hypothesis"/>
       </genClasses>
-      <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/DualFactorPlan">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/DualFactorPlan/factor"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/DualFactorPlan/design"/>
+      <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/PiecesOfApparatus">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/PiecesOfApparatus/components"/>
       </genClasses>
-      <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/TernaryFactorPlan">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/TernaryFactorPlan/factors"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/TernaryFactorPlan/design"/>
+      <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/IndependentVariables">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/IndependentVariables/variables"/>
       </genClasses>
-      <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/GenericPlan">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/GenericPlan/factors"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/GenericPlan/design"/>
+      <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/DependentVariables">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/DependentVariables/variables"/>
       </genClasses>
-      <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/MonoFactorMultTreatmentPlan">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/MonoFactorMultTreatmentPlan/factor"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/MonoFactorMultTreatmentPlan/design"/>
+      <genClasses image="false" ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/Factors"/>
+      <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/TwoFactors">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/TwoFactors/factors"/>
+      </genClasses>
+      <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/UniqueFactor">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/UniqueFactor/factor"/>
+      </genClasses>
+      <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/TreeMoreFactors">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/TreeMoreFactors/factors"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/Factor">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/Factor/treatments"/>
+      </genClasses>
+      <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/Hypothesis">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/Hypothesis/hypotheses"/>
+      </genClasses>
+      <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/Hypotheses">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/Hypotheses/dependentvariable"/>
       </genClasses>
       <nestedGenPackages prefix="Threats" disposableProviderFactory="true" ecorePackage="../../ExperimentOntology/model/experimentOntology.ecore#//planning/threats">
         <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/threats/Threats">
@@ -318,7 +353,10 @@
         <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/threats/ConfoundingConstruct"/>
         <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/threats/MonoOperationBias"/>
         <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/threats/InteractionOfDifferents"/>
-        <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/threats/MitigationAction"/>
+        <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/threats/MitigationAction">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/threats/MitigationAction/element"/>
+        </genClasses>
       </nestedGenPackages>
       <nestedGenPackages prefix="Sampling" disposableProviderFactory="true" ecorePackage="../../ExperimentOntology/model/experimentOntology.ecore#//planning/sampling">
         <genClasses image="false" ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/sampling/SamplingStrategy"/>
@@ -332,53 +370,57 @@
         <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/sampling/ConvenienceSampling"/>
         <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/sampling/QuoteSampling"/>
         <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/sampling/PopulationDescription"/>
+        <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/sampling/Sampling">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/sampling/Sampling/strategy"/>
+        </genClasses>
       </nestedGenPackages>
       <nestedGenPackages prefix="DesignOfExperiment" disposableProviderFactory="true"
           ecorePackage="../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment">
-        <genEnums typeSafeEnumCompatible="false" ecoreEnum="../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/TriFactorTypes">
-          <genEnumLiterals ecoreEnumLiteral="../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/TriFactorTypes/TwoK"/>
-          <genEnumLiterals ecoreEnumLiteral="../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/TriFactorTypes/HalfTwoK"/>
-          <genEnumLiterals ecoreEnumLiteral="../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/TriFactorTypes/QuarterTwoK"/>
+        <genEnums typeSafeEnumCompatible="false" ecoreEnum="../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/TwoKFractionalTypes">
+          <genEnumLiterals ecoreEnumLiteral="../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/TwoKFractionalTypes/OneHalf"/>
+          <genEnumLiterals ecoreEnumLiteral="../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/TwoKFractionalTypes/OneQuarter"/>
+          <genEnumLiterals ecoreEnumLiteral="../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/TwoKFractionalTypes/Other"/>
         </genEnums>
+        <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/DesignDescription">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/DesignDescription/design"/>
+        </genClasses>
         <genClasses image="false" ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/DesignType">
-          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/DesignType/discipline"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/DesignType/isBalanced"/>
         </genClasses>
-        <genClasses image="false" ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/DesignDiscipline"/>
-        <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/RandomizedDesign"/>
-        <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/BlockDesign">
-          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/BlockDesign/block"/>
-        </genClasses>
-        <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/BalancedDesign"/>
-        <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/BlockedCharacteristic">
+        <genClasses image="false" ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/UniqueFactorDesign">
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
-              ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/BlockedCharacteristic/threat"/>
+              ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/UniqueFactorDesign/factor"/>
         </genClasses>
-        <genClasses image="false" ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/OneFactorDesign"/>
-        <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/TwoTreatmentDesign"/>
-        <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/MultTreatmentDesign"/>
-        <genClasses image="false" ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/TwoFactorDesign"/>
-        <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/SquareDesign">
-          <genFeatures notify="false" createChild="false" propertySortChoices="true"
-              ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/SquareDesign/column"/>
-          <genFeatures notify="false" createChild="false" propertySortChoices="true"
-              ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/SquareDesign/line"/>
+        <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/CompleteRandomizedDesign"/>
+        <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/RandomizedCompleteBlockDesign"/>
+        <genClasses image="false" ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/Blockable">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/Blockable/block"/>
         </genClasses>
-        <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/NestedFactorDesign">
-          <genFeatures notify="false" createChild="false" propertySortChoices="true"
-              ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/NestedFactorDesign/stageOne"/>
-          <genFeatures notify="false" createChild="false" propertySortChoices="true"
-              ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/NestedFactorDesign/stageTwo"/>
+        <genClasses image="false" ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/RequiredBlock">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/RequiredBlock/block"/>
         </genClasses>
-        <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/TriFactorDesign">
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/TriFactorDesign/type"/>
+        <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/Block">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/Block/blockedVariable"/>
         </genClasses>
-        <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/GenericDesign"/>
+        <genClasses image="false" ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/TwoFactorDesign">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/TwoFactorDesign/factors"/>
+        </genClasses>
+        <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/TwoAndTwoFactorialDesign"/>
+        <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/TwoStageDesign"/>
+        <genClasses image="false" ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/TreeMoreDesign">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/TreeMoreDesign/factors"/>
+        </genClasses>
+        <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/TwoKFactorialDesign"/>
+        <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/TwoKFractionalFactorialDesign">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ExperimentOntology/model/experimentOntology.ecore#//planning/designOfExperiment/TwoKFractionalFactorialDesign/type"/>
+        </genClasses>
       </nestedGenPackages>
     </nestedGenPackages>
     <nestedGenPackages prefix="Operation" disposableProviderFactory="true" ecorePackage="../../ExperimentOntology/model/experimentOntology.ecore#//operation">
-      <genClasses image="false" ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//operation/ExecutionPlan">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//operation/ExecutionPlan/prePlan"/>
-      </genClasses>
+      <genClasses image="false" ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//operation/ExecutionPlan"/>
       <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//operation/CommonExecutionPlan">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//operation/CommonExecutionPlan/tasks"/>
       </genClasses>
@@ -388,7 +430,7 @@
       <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//operation/ExecutionPlanByTreatment">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//operation/ExecutionPlanByTreatment/treatment"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//operation/ExecutionPlanByTreatment/context"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//operation/ExecutionPlanByTreatment/plan"/>
       </genClasses>
       <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//operation/PreExecutionPlan">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//operation/PreExecutionPlan/pretasks"/>
@@ -397,9 +439,18 @@
       <genClasses image="false" ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//operation/ExperimentalTasks"/>
       <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//operation/Context">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//operation/Context/artifacts"/>
+            ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//operation/Context/provided"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//operation/Context/instruments"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//operation/Context/required"/>
+      </genClasses>
+      <genClasses ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//operation/ExecutionPlanDescription">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//operation/ExecutionPlanDescription/plan"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//operation/ExecutionPlanDescription/prePlan"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="../../ExperimentOntology/model/experimentOntology.ecore#//operation/ContextRelatedTask">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ExperimentOntology/model/experimentOntology.ecore#//operation/ContextRelatedTask/context"/>
       </genClasses>
       <nestedGenPackages prefix="TaskCompositionFramework" disposableProviderFactory="true"
           ecorePackage="../../ExperimentOntology/model/experimentOntology.ecore#//operation/taskCompositionFramework">

@@ -105,7 +105,10 @@
     </eSubpackages>
   </eSubpackages>
   <eSubpackages name="planning" nsURI="http://www.example.org/planning" nsPrefix="planning">
-    <eClassifiers xsi:type="ecore:EClass" name="DependentVariable" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DependentVariable" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="hypotheses" lowerBound="1"
+          upperBound="-1" eType="#//planning/Hypotheses" eOpposite="#//planning/Hypotheses/dependentvariable"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IndependentVariable" abstract="true"/>
     <eClassifiers xsi:type="ecore:EClass" name="Apparatus" abstract="true"/>
     <eClassifiers xsi:type="ecore:EClass" name="Artifact" abstract="true" eSuperTypes="#//planning/Apparatus"/>
@@ -122,10 +125,12 @@
           eType="#//planning/Factors" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="threats" eType="#//planning/threats/Threats"
           containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="sampling" eType="#//planning/sampling/SamplingDescription"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="sampling" eType="#//planning/sampling/Sampling"
           containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="design" lowerBound="1"
           eType="#//planning/designOfExperiment/DesignDescription" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="hypothesis" lowerBound="1"
+          eType="#//planning/Hypothesis" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PiecesOfApparatus">
       <eStructuralFeatures xsi:type="ecore:EReference" name="components" lowerBound="1"
@@ -155,6 +160,14 @@
     <eClassifiers xsi:type="ecore:EClass" name="Factor">
       <eStructuralFeatures xsi:type="ecore:EReference" name="treatments" lowerBound="2"
           upperBound="-1" eType="#//planning/Treatment" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Hypothesis">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="hypotheses" lowerBound="1"
+          upperBound="-1" eType="#//planning/Hypotheses" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Hypotheses">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="dependentvariable" lowerBound="1"
+          upperBound="-1" eType="#//planning/DependentVariable" eOpposite="#//planning/DependentVariable/hypotheses"/>
     </eClassifiers>
     <eSubpackages name="threats" nsURI="http://www.example.org/threats" nsPrefix="threats">
       <eClassifiers xsi:type="ecore:EClass" name="Threats">
@@ -224,7 +237,7 @@
       <eClassifiers xsi:type="ecore:EClass" name="ConvenienceSampling" eSuperTypes="#//planning/sampling/NoProbabilityTechinique"/>
       <eClassifiers xsi:type="ecore:EClass" name="QuoteSampling" eSuperTypes="#//planning/sampling/NoProbabilityTechinique"/>
       <eClassifiers xsi:type="ecore:EClass" name="PopulationDescription"/>
-      <eClassifiers xsi:type="ecore:EClass" name="SamplingDescription">
+      <eClassifiers xsi:type="ecore:EClass" name="Sampling">
         <eStructuralFeatures xsi:type="ecore:EReference" name="strategy" lowerBound="1"
             eType="#//planning/sampling/SamplingStrategy" containment="true"/>
       </eClassifiers>

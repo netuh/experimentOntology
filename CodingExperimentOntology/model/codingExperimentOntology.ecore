@@ -144,7 +144,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TimeMonitorInstrument" abstract="true"
         eSuperTypes="#//apparatus/CodingInstrument"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Questionnaire" abstract="true" eSuperTypes="#//apparatus/CodingInstrument">
+    <eClassifiers xsi:type="ecore:EClass" name="Questionnaire" abstract="true" eSuperTypes="#//apparatus/CodingInstrument #//apparatus/TaskRelated">
       <eStructuralFeatures xsi:type="ecore:EReference" name="questions" lowerBound="1"
           upperBound="-1" eType="#//apparatus/Question" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="allocation" eType="#//apparatus/QuestionnarieAllocation"
@@ -155,7 +155,6 @@
           upperBound="-1" eType="#//apparatus/CodingArtifact"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TimeMonitorByTask" eSuperTypes="#//apparatus/TimeMonitorInstrument #//apparatus/TaskRelated"/>
-    <eClassifiers xsi:type="ecore:EClass" name="TimeMonitorByProcess" eSuperTypes="#//apparatus/TimeMonitorInstrument #//apparatus/ProcessRelated"/>
     <eClassifiers xsi:type="ecore:EEnum" name="CodingArtifactTypes">
       <eLiterals name="sourceCode"/>
       <eLiterals name="test" value="1"/>
@@ -167,9 +166,6 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="1"
           upperBound="-1" eType="#//tasks/CodingTask"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ProcessRelated" abstract="true"/>
-    <eClassifiers xsi:type="ecore:EClass" name="QuestionaryByTask" eSuperTypes="#//apparatus/TaskRelated #//apparatus/Questionnaire"/>
-    <eClassifiers xsi:type="ecore:EClass" name="QuestionnaireByProcess" eSuperTypes="#//apparatus/ProcessRelated #//apparatus/Questionnaire"/>
     <eClassifiers xsi:type="ecore:EClass" name="Question" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EReference" name="enunciation" lowerBound="1"
           eType="#//apparatus/QuestionContent" containment="true"/>

@@ -90,7 +90,10 @@
     </nestedGenPackages>
     <nestedGenPackages prefix="NewPackage2" basePackage="br.ufpe.exp.experimentOntology"
         disposableProviderFactory="true" ecorePackage="experimentOntology.ecore#//planning">
-      <genClasses ecoreClass="experimentOntology.ecore#//planning/DependentVariable"/>
+      <genClasses ecoreClass="experimentOntology.ecore#//planning/DependentVariable">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference experimentOntology.ecore#//planning/DependentVariable/hypotheses"/>
+      </genClasses>
       <genClasses ecoreClass="experimentOntology.ecore#//planning/IndependentVariable"/>
       <genClasses ecoreClass="experimentOntology.ecore#//planning/Apparatus"/>
       <genClasses ecoreClass="experimentOntology.ecore#//planning/Artifact"/>
@@ -104,6 +107,7 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference experimentOntology.ecore#//planning/ExperimentalPlanDescription/threats"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference experimentOntology.ecore#//planning/ExperimentalPlanDescription/sampling"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference experimentOntology.ecore#//planning/ExperimentalPlanDescription/design"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference experimentOntology.ecore#//planning/ExperimentalPlanDescription/hypothesis"/>
       </genClasses>
       <genClasses ecoreClass="experimentOntology.ecore#//planning/PiecesOfApparatus">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference experimentOntology.ecore#//planning/PiecesOfApparatus/components"/>
@@ -126,6 +130,13 @@
       </genClasses>
       <genClasses ecoreClass="experimentOntology.ecore#//planning/Factor">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference experimentOntology.ecore#//planning/Factor/treatments"/>
+      </genClasses>
+      <genClasses ecoreClass="experimentOntology.ecore#//planning/Hypothesis">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference experimentOntology.ecore#//planning/Hypothesis/hypotheses"/>
+      </genClasses>
+      <genClasses ecoreClass="experimentOntology.ecore#//planning/Hypotheses">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference experimentOntology.ecore#//planning/Hypotheses/dependentvariable"/>
       </genClasses>
       <nestedGenPackages prefix="NewPackage1" basePackage="br.ufpe.exp.experimentOntology.planning"
           disposableProviderFactory="true" ecorePackage="experimentOntology.ecore#//planning/threats">
@@ -188,8 +199,8 @@
         <genClasses ecoreClass="experimentOntology.ecore#//planning/sampling/ConvenienceSampling"/>
         <genClasses ecoreClass="experimentOntology.ecore#//planning/sampling/QuoteSampling"/>
         <genClasses ecoreClass="experimentOntology.ecore#//planning/sampling/PopulationDescription"/>
-        <genClasses ecoreClass="experimentOntology.ecore#//planning/sampling/SamplingDescription">
-          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference experimentOntology.ecore#//planning/sampling/SamplingDescription/strategy"/>
+        <genClasses ecoreClass="experimentOntology.ecore#//planning/sampling/Sampling">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference experimentOntology.ecore#//planning/sampling/Sampling/strategy"/>
         </genClasses>
       </nestedGenPackages>
       <nestedGenPackages prefix="NewPackage3" disposableProviderFactory="true" ecorePackage="experimentOntology.ecore#//planning/designOfExperiment">
