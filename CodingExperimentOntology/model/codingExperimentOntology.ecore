@@ -39,10 +39,6 @@
     <eClassifiers xsi:type="ecore:EClass" name="ConventionalCodingTask" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="taskType" eType="#//tasks/CodingTaskTypes"
           defaultValueLiteral="writing"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredArtifact" upperBound="-1"
-          eType="#//apparatus/CodingArtifact"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="producedArtifact" upperBound="-1"
-          eType="#//apparatus/CodingArtifact"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="GenericCodingTask" eSuperTypes="#//tasks/CodingTask"/>
     <eClassifiers xsi:type="ecore:EClass" name="CodingPreTask" abstract="true" eSuperTypes="../../ExperimentOntology/model/experimentOntology.ecore#//operation/PreTasks"/>
@@ -120,7 +116,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
           eType="#//threats/MitigatingByAsking" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="GenericMitigation"/>
+    <eClassifiers xsi:type="ecore:EClass" name="GenericMitigation" eSuperTypes="../../ExperimentOntology/model/experimentOntology.ecore#//planning/threats/MitigationAction"/>
     <eClassifiers xsi:type="ecore:EClass" name="MitigatingByAsking">
       <eStructuralFeatures xsi:type="ecore:EReference" name="question" lowerBound="1"
           upperBound="-1" eType="#//apparatus/Question"/>
@@ -170,7 +166,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="enunciation" lowerBound="1"
           eType="#//apparatus/QuestionContent" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="QuestionContent"/>
+    <eClassifiers xsi:type="ecore:EClass" name="QuestionContent" eSuperTypes="../../ExperimentOntology/model/experimentOntology.ecore#//basement/StringContent"/>
     <eClassifiers xsi:type="ecore:EClass" name="Field" eSuperTypes="#//apparatus/Question">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//apparatus/FieldTypes"
           defaultValueLiteral="text"/>

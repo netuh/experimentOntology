@@ -27,33 +27,35 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="authorship" lowerBound="1"
           eType="#//description/Authors" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Author"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Author">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="venue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Abstract" abstract="true"/>
-    <eClassifiers xsi:type="ecore:EClass" name="SimpleAbstract" eSuperTypes="#//description/Abstract"/>
-    <eClassifiers xsi:type="ecore:EClass" name="StructuredAbstract" eSuperTypes="#//description/Abstract"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SimpleAbstract" eSuperTypes="#//description/Abstract #//basement/StringContent"/>
+    <eClassifiers xsi:type="ecore:EClass" name="StructuredAbstract" eSuperTypes="#//description/Abstract">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="background" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="objective" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="results" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="limitations" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="conclusion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Keywords">
       <eStructuralFeatures xsi:type="ecore:EReference" name="content" lowerBound="1"
           upperBound="-1" eType="#//description/Keyword" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TraditionalDescription" eSuperTypes="#//description/Describable">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="questions" lowerBound="1"
-          eType="#//description/Questions" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="hypothesis" lowerBound="1"
-          eType="#//description/ResearchHypotheses" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="goals" lowerBound="1"
-          eType="#//description/Goals" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="questions" eType="#//description/Questions"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="goals" eType="#//description/Goals"
+          containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Questions">
       <eStructuralFeatures xsi:type="ecore:EReference" name="researchQuestions" lowerBound="1"
           upperBound="-1" eType="#//description/SimpleResearchQuestion" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Goal" abstract="true"/>
-    <eClassifiers xsi:type="ecore:EClass" name="ResearchHypotheses">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="hypotheses" lowerBound="1"
-          upperBound="-1" eType="#//description/SimpleHypothesis" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="SimpleGoal" eSuperTypes="#//description/Goal"/>
-    <eClassifiers xsi:type="ecore:EClass" name="StructuredGoal" eSuperTypes="#//description/Goal"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Goal" abstract="true" eSuperTypes="#//basement/Nameable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SimpleGoal" eSuperTypes="#//description/Goal #//basement/StringContent"/>
     <eClassifiers xsi:type="ecore:EClass" name="Description">
       <eStructuralFeatures xsi:type="ecore:EReference" name="description" lowerBound="1"
           eType="#//description/Describable" containment="true"/>
@@ -62,9 +64,8 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="author" lowerBound="1"
           upperBound="-1" eType="#//description/Author" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Keyword"/>
-    <eClassifiers xsi:type="ecore:EClass" name="SimpleResearchQuestion"/>
-    <eClassifiers xsi:type="ecore:EClass" name="SimpleHypothesis"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Keyword" eSuperTypes="#//basement/StringContent"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SimpleResearchQuestion" eSuperTypes="#//basement/StringContent #//basement/Nameable"/>
     <eClassifiers xsi:type="ecore:EClass" name="Goals">
       <eStructuralFeatures xsi:type="ecore:EReference" name="goal" lowerBound="1"
           upperBound="-1" eType="#//description/Goal" containment="true"/>
@@ -78,15 +79,20 @@
         <eStructuralFeatures xsi:type="ecore:EReference" name="metrics" lowerBound="1"
             eType="#//description/gqm/Metrics" containment="true"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="GoalGQM">
+      <eClassifiers xsi:type="ecore:EClass" name="GoalGQM" eSuperTypes="#//description/Goal">
         <eStructuralFeatures xsi:type="ecore:EReference" name="relatedQuestion" lowerBound="1"
             upperBound="-1" eType="#//description/gqm/QuestionGQM"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="analyze" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="purpose" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="withRespect" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="pointOfView" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="context" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="QuestionGQM">
+      <eClassifiers xsi:type="ecore:EClass" name="QuestionGQM" eSuperTypes="#//basement/StringContent #//basement/Nameable">
         <eStructuralFeatures xsi:type="ecore:EReference" name="relatedMetric" lowerBound="1"
             upperBound="-1" eType="#//description/gqm/MetricGQM"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="MetricGQM">
+      <eClassifiers xsi:type="ecore:EClass" name="MetricGQM" eSuperTypes="#//basement/StringContent #//basement/Nameable">
         <eStructuralFeatures xsi:type="ecore:EReference" name="relatedVariable" lowerBound="1"
             upperBound="-1" eType="#//planning/DependentVariable"/>
       </eClassifiers>
@@ -105,15 +111,17 @@
     </eSubpackages>
   </eSubpackages>
   <eSubpackages name="planning" nsURI="http://www.example.org/planning" nsPrefix="planning">
-    <eClassifiers xsi:type="ecore:EClass" name="DependentVariable" abstract="true">
+    <eClassifiers xsi:type="ecore:EClass" name="DependentVariable" abstract="true"
+        eSuperTypes="#//basement/Nameable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="hypotheses" lowerBound="1"
           upperBound="-1" eType="#//planning/Hypotheses" eOpposite="#//planning/Hypotheses/dependentvariable"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="IndependentVariable" abstract="true"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Apparatus" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="IndependentVariable" abstract="true"
+        eSuperTypes="#//basement/Nameable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Apparatus" abstract="true" eSuperTypes="#//basement/Nameable"/>
     <eClassifiers xsi:type="ecore:EClass" name="Artifact" abstract="true" eSuperTypes="#//planning/Apparatus"/>
     <eClassifiers xsi:type="ecore:EClass" name="Instrument" abstract="true" eSuperTypes="#//planning/Apparatus"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Treatment"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Treatment" eSuperTypes="#//basement/Nameable #//basement/StringContent"/>
     <eClassifiers xsi:type="ecore:EClass" name="ExperimentalPlanDescription">
       <eStructuralFeatures xsi:type="ecore:EReference" name="apparatus" eType="#//planning/PiecesOfApparatus"
           containment="true"/>
@@ -157,7 +165,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="factors" lowerBound="3"
           upperBound="-1" eType="#//planning/Factor" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Factor">
+    <eClassifiers xsi:type="ecore:EClass" name="Factor" eSuperTypes="#//basement/Nameable #//basement/StringContent">
       <eStructuralFeatures xsi:type="ecore:EReference" name="treatments" lowerBound="2"
           upperBound="-1" eType="#//planning/Treatment" containment="true"/>
     </eClassifiers>
@@ -165,7 +173,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="hypotheses" lowerBound="1"
           upperBound="-1" eType="#//planning/Hypotheses" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Hypotheses">
+    <eClassifiers xsi:type="ecore:EClass" name="Hypotheses" eSuperTypes="#//basement/Nameable #//basement/StringContent">
       <eStructuralFeatures xsi:type="ecore:EReference" name="dependentvariable" lowerBound="1"
           upperBound="-1" eType="#//planning/DependentVariable" eOpposite="#//planning/DependentVariable/hypotheses"/>
     </eClassifiers>
@@ -174,7 +182,7 @@
         <eStructuralFeatures xsi:type="ecore:EReference" name="threat" upperBound="-1"
             eType="#//planning/threats/Threat" containment="true"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="Threat" abstract="true">
+      <eClassifiers xsi:type="ecore:EClass" name="Threat" abstract="true" eSuperTypes="#//basement/Nameable #//basement/StringContent">
         <eStructuralFeatures xsi:type="ecore:EReference" name="action" upperBound="-1"
             eType="#//planning/threats/MitigationAction" containment="true"/>
       </eClassifiers>
@@ -217,7 +225,7 @@
       <eClassifiers xsi:type="ecore:EClass" name="ConfoundingConstruct" eSuperTypes="#//planning/threats/ConstructTreat"/>
       <eClassifiers xsi:type="ecore:EClass" name="MonoOperationBias" eSuperTypes="#//planning/threats/ConstructTreat"/>
       <eClassifiers xsi:type="ecore:EClass" name="InteractionOfDifferents" eSuperTypes="#//planning/threats/ConstructTreat"/>
-      <eClassifiers xsi:type="ecore:EClass" name="MitigationAction">
+      <eClassifiers xsi:type="ecore:EClass" name="MitigationAction" eSuperTypes="#//basement/StringContent #//basement/Nameable">
         <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//planning/Apparatus"/>
       </eClassifiers>
     </eSubpackages>
@@ -227,16 +235,23 @@
           eSuperTypes="#//planning/sampling/SamplingStrategy">
         <eStructuralFeatures xsi:type="ecore:EReference" name="population" lowerBound="1"
             eType="#//planning/sampling/PopulationDescription" containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="isQuaseExperiment"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+            defaultValueLiteral="false"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="SimpleRandomTechinique" eSuperTypes="#//planning/sampling/ProbabilityTechinique"/>
       <eClassifiers xsi:type="ecore:EClass" name="SystematicTechinique" eSuperTypes="#//planning/sampling/ProbabilityTechinique"/>
       <eClassifiers xsi:type="ecore:EClass" name="StratifiedRandomSamplingTechinique"
           eSuperTypes="#//planning/sampling/ProbabilityTechinique"/>
       <eClassifiers xsi:type="ecore:EClass" name="NoProbabilityTechinique" abstract="true"
-          eSuperTypes="#//planning/sampling/SamplingStrategy"/>
+          eSuperTypes="#//planning/sampling/SamplingStrategy">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="isQuasiExperiment"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+            defaultValueLiteral="true"/>
+      </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="ConvenienceSampling" eSuperTypes="#//planning/sampling/NoProbabilityTechinique"/>
       <eClassifiers xsi:type="ecore:EClass" name="QuoteSampling" eSuperTypes="#//planning/sampling/NoProbabilityTechinique"/>
-      <eClassifiers xsi:type="ecore:EClass" name="PopulationDescription"/>
+      <eClassifiers xsi:type="ecore:EClass" name="PopulationDescription" eSuperTypes="#//basement/StringContent"/>
       <eClassifiers xsi:type="ecore:EClass" name="Sampling">
         <eStructuralFeatures xsi:type="ecore:EReference" name="strategy" lowerBound="1"
             eType="#//planning/sampling/SamplingStrategy" containment="true"/>
@@ -265,7 +280,7 @@
         <eStructuralFeatures xsi:type="ecore:EReference" name="block" lowerBound="1"
             upperBound="-1" eType="#//planning/designOfExperiment/Block" containment="true"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="Block">
+      <eClassifiers xsi:type="ecore:EClass" name="Block" eSuperTypes="#//basement/Nameable">
         <eStructuralFeatures xsi:type="ecore:EReference" name="blockedVariable" lowerBound="1"
             eType="#//planning/IndependentVariable"/>
       </eClassifiers>
@@ -330,7 +345,8 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="prePlan" eType="#//operation/PreExecutionPlan"
           containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ContextRelatedTask" abstract="true">
+    <eClassifiers xsi:type="ecore:EClass" name="ContextRelatedTask" abstract="true"
+        eSuperTypes="#//basement/Nameable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="context" eType="#//operation/Context"
           containment="true"/>
     </eClassifiers>
@@ -357,5 +373,13 @@
             eType="#//operation/taskCompositionFramework/Task" containment="true"/>
       </eClassifiers>
     </eSubpackages>
+  </eSubpackages>
+  <eSubpackages name="basement" nsURI="basement" nsPrefix="basement">
+    <eClassifiers xsi:type="ecore:EClass" name="StringContent" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Nameable" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>
