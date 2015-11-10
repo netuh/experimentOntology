@@ -54,7 +54,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="researchQuestions" lowerBound="1"
           upperBound="-1" eType="#//description/SimpleResearchQuestion" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Goal" abstract="true" eSuperTypes="#//basement/Nameable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Goal" abstract="true" eSuperTypes="#//basement/Nameable #//basement/Characteristic"/>
     <eClassifiers xsi:type="ecore:EClass" name="SimpleGoal" eSuperTypes="#//description/Goal #//basement/StringContent"/>
     <eClassifiers xsi:type="ecore:EClass" name="Description">
       <eStructuralFeatures xsi:type="ecore:EReference" name="description" lowerBound="1"
@@ -65,7 +65,7 @@
           upperBound="-1" eType="#//description/Author" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Keyword" eSuperTypes="#//basement/StringContent"/>
-    <eClassifiers xsi:type="ecore:EClass" name="SimpleResearchQuestion" eSuperTypes="#//basement/StringContent #//basement/Nameable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SimpleResearchQuestion" eSuperTypes="#//basement/StringContent #//basement/Nameable #//basement/Characteristic"/>
     <eClassifiers xsi:type="ecore:EClass" name="Goals">
       <eStructuralFeatures xsi:type="ecore:EReference" name="goal" lowerBound="1"
           upperBound="-1" eType="#//description/Goal" containment="true"/>
@@ -88,7 +88,7 @@
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="pointOfView" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="context" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="QuestionGQM" eSuperTypes="#//basement/StringContent #//basement/Nameable">
+      <eClassifiers xsi:type="ecore:EClass" name="QuestionGQM" eSuperTypes="#//basement/StringContent #//basement/Nameable #//basement/Characteristic">
         <eStructuralFeatures xsi:type="ecore:EReference" name="relatedMetric" lowerBound="1"
             upperBound="-1" eType="#//description/gqm/MetricGQM"/>
       </eClassifiers>
@@ -112,13 +112,13 @@
   </eSubpackages>
   <eSubpackages name="planning" nsURI="http://www.example.org/planning" nsPrefix="planning">
     <eClassifiers xsi:type="ecore:EClass" name="DependentVariable" abstract="true"
-        eSuperTypes="#//basement/Nameable">
+        eSuperTypes="#//basement/Nameable #//basement/Characteristic">
       <eStructuralFeatures xsi:type="ecore:EReference" name="hypotheses" lowerBound="1"
           upperBound="-1" eType="#//planning/Hypotheses" eOpposite="#//planning/Hypotheses/dependentvariable"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IndependentVariable" abstract="true"
-        eSuperTypes="#//basement/Nameable"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Apparatus" abstract="true" eSuperTypes="#//basement/Nameable"/>
+        eSuperTypes="#//basement/Nameable #//basement/Characteristic"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Apparatus" abstract="true" eSuperTypes="#//basement/Nameable #//basement/Characteristic"/>
     <eClassifiers xsi:type="ecore:EClass" name="Artifact" abstract="true" eSuperTypes="#//planning/Apparatus"/>
     <eClassifiers xsi:type="ecore:EClass" name="Instrument" abstract="true" eSuperTypes="#//planning/Apparatus"/>
     <eClassifiers xsi:type="ecore:EClass" name="Treatment" eSuperTypes="#//basement/Nameable #//basement/StringContent"/>
@@ -165,7 +165,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="factors" lowerBound="3"
           upperBound="-1" eType="#//planning/Factor" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Factor" eSuperTypes="#//basement/Nameable #//basement/StringContent">
+    <eClassifiers xsi:type="ecore:EClass" name="Factor" eSuperTypes="#//basement/Nameable #//basement/StringContent #//basement/Characteristic">
       <eStructuralFeatures xsi:type="ecore:EReference" name="treatments" lowerBound="2"
           upperBound="-1" eType="#//planning/Treatment" containment="true"/>
     </eClassifiers>
@@ -173,7 +173,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="hypotheses" lowerBound="1"
           upperBound="-1" eType="#//planning/Hypotheses" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Hypotheses" eSuperTypes="#//basement/Nameable #//basement/StringContent">
+    <eClassifiers xsi:type="ecore:EClass" name="Hypotheses" eSuperTypes="#//basement/Nameable #//basement/StringContent #//basement/Characteristic">
       <eStructuralFeatures xsi:type="ecore:EReference" name="dependentvariable" lowerBound="1"
           upperBound="-1" eType="#//planning/DependentVariable" eOpposite="#//planning/DependentVariable/hypotheses"/>
     </eClassifiers>
@@ -182,7 +182,7 @@
         <eStructuralFeatures xsi:type="ecore:EReference" name="threat" upperBound="-1"
             eType="#//planning/threats/Threat" containment="true"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="Threat" abstract="true" eSuperTypes="#//basement/Nameable #//basement/StringContent">
+      <eClassifiers xsi:type="ecore:EClass" name="Threat" abstract="true" eSuperTypes="#//basement/Nameable #//basement/StringContent #//basement/Characteristic">
         <eStructuralFeatures xsi:type="ecore:EReference" name="action" upperBound="-1"
             eType="#//planning/threats/MitigationAction" containment="true"/>
       </eClassifiers>
@@ -311,26 +311,23 @@
   <eSubpackages name="operation" nsURI="http://www.example.org/operation" nsPrefix="operation">
     <eClassifiers xsi:type="ecore:EClass" name="ExecutionPlan" abstract="true"/>
     <eClassifiers xsi:type="ecore:EClass" name="CommonExecutionPlan" eSuperTypes="#//operation/ExecutionPlan">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" lowerBound="1"
-          eType="#//operation/ExperimentalTasks" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="1"
+          eType="#//operation/taskComposition/MainTask" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IndependentExecutionPlan" eSuperTypes="#//operation/ExecutionPlan">
       <eStructuralFeatures xsi:type="ecore:EReference" name="planByTreatment" lowerBound="2"
-          upperBound="-1" eType="#//operation/ExecutionPlanByTreatment" containment="true"/>
+          upperBound="-1" eType="#//operation/ExecutionPlanByCharacteristic" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ExecutionPlanByTreatment">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="treatment" lowerBound="1"
-          eType="#//planning/Treatment"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ExecutionPlanByCharacteristic">
       <eStructuralFeatures xsi:type="ecore:EReference" name="plan" lowerBound="1"
           eType="#//operation/CommonExecutionPlan" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="characteristic" lowerBound="1"
+          upperBound="-1" eType="#//basement/Characteristic"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PreExecutionPlan">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="pretasks" lowerBound="1"
-          eType="#//operation/PreTasks" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="pretask" lowerBound="1"
+          eType="#//operation/taskComposition/preTaskComposition/PreTask" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="PreTasks" abstract="true" eSuperTypes="#//operation/ContextRelatedTask"/>
-    <eClassifiers xsi:type="ecore:EClass" name="ExperimentalTasks" abstract="true"
-        eSuperTypes="#//operation/ContextRelatedTask"/>
     <eClassifiers xsi:type="ecore:EClass" name="Context">
       <eStructuralFeatures xsi:type="ecore:EReference" name="provided" upperBound="-1"
           eType="#//planning/Artifact"/>
@@ -350,28 +347,51 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="context" eType="#//operation/Context"
           containment="true"/>
     </eClassifiers>
-    <eSubpackages name="taskCompositionFramework" nsURI="taskCompositionFramework"
-        nsPrefix="taskCompositionFramework">
-      <eClassifiers xsi:type="ecore:EClass" name="Task" abstract="true" eSuperTypes="#//operation/PreTasks #//operation/ExperimentalTasks"/>
-      <eClassifiers xsi:type="ecore:EClass" name="Sequence" eSuperTypes="#//operation/taskCompositionFramework/Task">
+    <eSubpackages name="taskComposition" nsURI="taskComposition" nsPrefix="taskComposition">
+      <eClassifiers xsi:type="ecore:EClass" name="MainTask" abstract="true" eSuperTypes="#//operation/ContextRelatedTask"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Sequence" eSuperTypes="#//operation/taskComposition/MainTask">
         <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="1"
-            upperBound="-1" eType="#//operation/taskCompositionFramework/Task" containment="true"/>
+            upperBound="-1" eType="#//operation/taskComposition/MainTask" containment="true"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="Random" eSuperTypes="#//operation/taskCompositionFramework/Task">
+      <eClassifiers xsi:type="ecore:EClass" name="Random" eSuperTypes="#//operation/taskComposition/MainTask">
         <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="1"
-            upperBound="-1" eType="#//operation/taskCompositionFramework/Task" containment="true"/>
+            upperBound="-1" eType="#//operation/taskComposition/MainTask" containment="true"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="If" eSuperTypes="#//operation/taskCompositionFramework/Task">
+      <eClassifiers xsi:type="ecore:EClass" name="If" eSuperTypes="#//operation/taskComposition/MainTask">
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="condition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="elseif" eType="#//operation/taskCompositionFramework/ElseIf"
+        <eStructuralFeatures xsi:type="ecore:EReference" name="elseif" eType="#//operation/taskComposition/ElseIf"
             containment="true"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="1"
-            eType="#//operation/taskCompositionFramework/Task" containment="true"/>
+            eType="#//operation/taskComposition/MainTask" containment="true"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="ElseIf">
         <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="1"
-            eType="#//operation/taskCompositionFramework/Task" containment="true"/>
+            eType="#//operation/taskComposition/MainTask" containment="true"/>
       </eClassifiers>
+      <eSubpackages name="preTaskComposition" nsURI="preTaskComposition" nsPrefix="preTaskComposition">
+        <eClassifiers xsi:type="ecore:EClass" name="PreTask" abstract="true" eSuperTypes="#//operation/ContextRelatedTask"/>
+        <eClassifiers xsi:type="ecore:EClass" name="Sequence" eSuperTypes="#//operation/taskComposition/preTaskComposition/PreTask">
+          <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="1"
+              upperBound="-1" eType="#//operation/taskComposition/preTaskComposition/PreTask"
+              containment="true"/>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="Random" eSuperTypes="#//operation/taskComposition/preTaskComposition/PreTask">
+          <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="1"
+              upperBound="-1" eType="#//operation/taskComposition/preTaskComposition/PreTask"
+              containment="true"/>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="If" eSuperTypes="#//operation/taskComposition/preTaskComposition/PreTask">
+          <eStructuralFeatures xsi:type="ecore:EReference" name="elseif" eType="#//operation/taskComposition/preTaskComposition/ElseIf"
+              containment="true"/>
+          <eStructuralFeatures xsi:type="ecore:EAttribute" name="condition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="1"
+              eType="#//operation/taskComposition/preTaskComposition/PreTask" containment="true"/>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="ElseIf">
+          <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="1"
+              eType="#//operation/taskComposition/preTaskComposition/PreTask" containment="true"/>
+        </eClassifiers>
+      </eSubpackages>
     </eSubpackages>
   </eSubpackages>
   <eSubpackages name="basement" nsURI="basement" nsPrefix="basement">
@@ -381,5 +401,6 @@
     <eClassifiers xsi:type="ecore:EClass" name="Nameable" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Characteristic" abstract="true"/>
   </eSubpackages>
 </ecore:EPackage>

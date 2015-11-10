@@ -263,21 +263,19 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference experimentOntology.ecore#//operation/ExecutionPlanDescription/prePlan"/>
       </genClasses>
       <genClasses ecoreClass="experimentOntology.ecore#//operation/CommonExecutionPlan">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference experimentOntology.ecore#//operation/CommonExecutionPlan/tasks"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference experimentOntology.ecore#//operation/CommonExecutionPlan/task"/>
       </genClasses>
       <genClasses ecoreClass="experimentOntology.ecore#//operation/IndependentExecutionPlan">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference experimentOntology.ecore#//operation/IndependentExecutionPlan/planByTreatment"/>
       </genClasses>
-      <genClasses ecoreClass="experimentOntology.ecore#//operation/ExecutionPlanByTreatment">
+      <genClasses ecoreClass="experimentOntology.ecore#//operation/ExecutionPlanByCharacteristic">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference experimentOntology.ecore#//operation/ExecutionPlanByCharacteristic/plan"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference experimentOntology.ecore#//operation/ExecutionPlanByTreatment/treatment"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference experimentOntology.ecore#//operation/ExecutionPlanByTreatment/plan"/>
+            ecoreFeature="ecore:EReference experimentOntology.ecore#//operation/ExecutionPlanByCharacteristic/characteristic"/>
       </genClasses>
       <genClasses ecoreClass="experimentOntology.ecore#//operation/PreExecutionPlan">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference experimentOntology.ecore#//operation/PreExecutionPlan/pretasks"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference experimentOntology.ecore#//operation/PreExecutionPlan/pretask"/>
       </genClasses>
-      <genClasses ecoreClass="experimentOntology.ecore#//operation/PreTasks"/>
-      <genClasses ecoreClass="experimentOntology.ecore#//operation/ExperimentalTasks"/>
       <genClasses ecoreClass="experimentOntology.ecore#//operation/Context">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference experimentOntology.ecore#//operation/Context/provided"/>
@@ -293,24 +291,41 @@
       <genClasses ecoreClass="experimentOntology.ecore#//operation/ContextRelatedTask">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference experimentOntology.ecore#//operation/ContextRelatedTask/context"/>
       </genClasses>
-      <nestedGenPackages prefix="NewPackage1" disposableProviderFactory="true" ecorePackage="experimentOntology.ecore#//operation/taskCompositionFramework">
-        <genClasses ecoreClass="experimentOntology.ecore#//operation/taskCompositionFramework/Task">
+      <nestedGenPackages prefix="NewPackage1" disposableProviderFactory="true" ecorePackage="experimentOntology.ecore#//operation/taskComposition">
+        <genClasses ecoreClass="experimentOntology.ecore#//operation/taskComposition/MainTask">
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference experimentOntology.ecore#//operation/ContextRelatedTask/context"/>
         </genClasses>
-        <genClasses ecoreClass="experimentOntology.ecore#//operation/taskCompositionFramework/Sequence">
-          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference experimentOntology.ecore#//operation/taskCompositionFramework/Sequence/task"/>
+        <genClasses ecoreClass="experimentOntology.ecore#//operation/taskComposition/Sequence">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference experimentOntology.ecore#//operation/taskComposition/Sequence/task"/>
         </genClasses>
-        <genClasses ecoreClass="experimentOntology.ecore#//operation/taskCompositionFramework/Random">
-          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference experimentOntology.ecore#//operation/taskCompositionFramework/Random/task"/>
+        <genClasses ecoreClass="experimentOntology.ecore#//operation/taskComposition/Random">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference experimentOntology.ecore#//operation/taskComposition/Random/task"/>
         </genClasses>
-        <genClasses ecoreClass="experimentOntology.ecore#//operation/taskCompositionFramework/If">
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute experimentOntology.ecore#//operation/taskCompositionFramework/If/condition"/>
-          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference experimentOntology.ecore#//operation/taskCompositionFramework/If/elseif"/>
-          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference experimentOntology.ecore#//operation/taskCompositionFramework/If/task"/>
+        <genClasses ecoreClass="experimentOntology.ecore#//operation/taskComposition/If">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute experimentOntology.ecore#//operation/taskComposition/If/condition"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference experimentOntology.ecore#//operation/taskComposition/If/elseif"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference experimentOntology.ecore#//operation/taskComposition/If/task"/>
         </genClasses>
-        <genClasses ecoreClass="experimentOntology.ecore#//operation/taskCompositionFramework/ElseIf">
-          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference experimentOntology.ecore#//operation/taskCompositionFramework/ElseIf/task"/>
+        <genClasses ecoreClass="experimentOntology.ecore#//operation/taskComposition/ElseIf">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference experimentOntology.ecore#//operation/taskComposition/ElseIf/task"/>
         </genClasses>
+        <nestedGenPackages prefix="NewPackage1" disposableProviderFactory="true" ecorePackage="experimentOntology.ecore#//operation/taskComposition/preTaskComposition">
+          <genClasses ecoreClass="experimentOntology.ecore#//operation/taskComposition/preTaskComposition/PreTask"/>
+          <genClasses ecoreClass="experimentOntology.ecore#//operation/taskComposition/preTaskComposition/Sequence">
+            <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference experimentOntology.ecore#//operation/taskComposition/preTaskComposition/Sequence/task"/>
+          </genClasses>
+          <genClasses ecoreClass="experimentOntology.ecore#//operation/taskComposition/preTaskComposition/Random">
+            <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference experimentOntology.ecore#//operation/taskComposition/preTaskComposition/Random/task"/>
+          </genClasses>
+          <genClasses ecoreClass="experimentOntology.ecore#//operation/taskComposition/preTaskComposition/If">
+            <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference experimentOntology.ecore#//operation/taskComposition/preTaskComposition/If/elseif"/>
+            <genFeatures createChild="false" ecoreFeature="ecore:EAttribute experimentOntology.ecore#//operation/taskComposition/preTaskComposition/If/condition"/>
+            <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference experimentOntology.ecore#//operation/taskComposition/preTaskComposition/If/task"/>
+          </genClasses>
+          <genClasses ecoreClass="experimentOntology.ecore#//operation/taskComposition/preTaskComposition/ElseIf">
+            <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference experimentOntology.ecore#//operation/taskComposition/preTaskComposition/ElseIf/task"/>
+          </genClasses>
+        </nestedGenPackages>
       </nestedGenPackages>
     </nestedGenPackages>
     <nestedGenPackages prefix="Basement" disposableProviderFactory="true" ecorePackage="experimentOntology.ecore#//basement">
@@ -320,6 +335,7 @@
       <genClasses ecoreClass="experimentOntology.ecore#//basement/Nameable">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute experimentOntology.ecore#//basement/Nameable/name"/>
       </genClasses>
+      <genClasses ecoreClass="experimentOntology.ecore#//basement/Characteristic"/>
     </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>

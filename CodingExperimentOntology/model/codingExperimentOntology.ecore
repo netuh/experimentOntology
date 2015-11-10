@@ -35,13 +35,13 @@
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="tasks" nsURI="tasks" nsPrefix="tasks">
-    <eClassifiers xsi:type="ecore:EClass" name="CodingTask" abstract="true" eSuperTypes="../../ExperimentOntology/model/experimentOntology.ecore#//operation/ExperimentalTasks"/>
+    <eClassifiers xsi:type="ecore:EClass" name="CodingTask" abstract="true" eSuperTypes="../../ExperimentOntology/model/experimentOntology.ecore#//operation/taskComposition/MainTask"/>
     <eClassifiers xsi:type="ecore:EClass" name="ConventionalCodingTask" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="taskType" eType="#//tasks/CodingTaskTypes"
           defaultValueLiteral="writing"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="GenericCodingTask" eSuperTypes="#//tasks/CodingTask"/>
-    <eClassifiers xsi:type="ecore:EClass" name="CodingPreTask" abstract="true" eSuperTypes="../../ExperimentOntology/model/experimentOntology.ecore#//operation/PreTasks"/>
+    <eClassifiers xsi:type="ecore:EClass" name="CodingPreTask" abstract="true" eSuperTypes="../../ExperimentOntology/model/experimentOntology.ecore#//operation/taskComposition/preTaskComposition/PreTask"/>
     <eClassifiers xsi:type="ecore:EClass" name="TrainingClass" eSuperTypes="#//tasks/CodingPreTask"/>
     <eClassifiers xsi:type="ecore:EClass" name="PilotTask" eSuperTypes="#//tasks/CodingPreTask #//tasks/ConventionalCodingTask"/>
     <eClassifiers xsi:type="ecore:EClass" name="ExperimentalCodingTask" eSuperTypes="#//tasks/ConventionalCodingTask #//tasks/CodingTask"/>
@@ -53,6 +53,10 @@
       <eLiterals name="compreension" value="4"/>
       <eLiterals name="debbuing" value="5"/>
       <eLiterals name="design" value="6"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="QuestionarieOnly" eSuperTypes="#//tasks/CodingTask #//tasks/CodingPreTask">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="questionnaire" lowerBound="1"
+          eType="#//apparatus/Questionnaire"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="threats" nsURI="threats" nsPrefix="threats">
@@ -140,7 +144,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TimeMonitorInstrument" abstract="true"
         eSuperTypes="#//apparatus/CodingInstrument"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Questionnaire" abstract="true" eSuperTypes="#//apparatus/CodingInstrument #//apparatus/TaskRelated">
+    <eClassifiers xsi:type="ecore:EClass" name="Questionnaire" eSuperTypes="#//apparatus/CodingInstrument #//apparatus/TaskRelated">
       <eStructuralFeatures xsi:type="ecore:EReference" name="questions" lowerBound="1"
           upperBound="-1" eType="#//apparatus/Question" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="allocation" eType="#//apparatus/QuestionnarieAllocation"
