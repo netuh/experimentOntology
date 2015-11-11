@@ -35,16 +35,13 @@
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="tasks" nsURI="tasks" nsPrefix="tasks">
-    <eClassifiers xsi:type="ecore:EClass" name="CodingTask" abstract="true" eSuperTypes="../../ExperimentOntology/model/experimentOntology.ecore#//operation/taskComposition/MainTask"/>
-    <eClassifiers xsi:type="ecore:EClass" name="ConventionalCodingTask" abstract="true">
+    <eClassifiers xsi:type="ecore:EClass" name="ConventionalCodingTask" eSuperTypes="#//tasks/CodingPreTask">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="taskType" eType="#//tasks/CodingTaskTypes"
           defaultValueLiteral="writing"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="GenericCodingTask" eSuperTypes="#//tasks/CodingTask"/>
-    <eClassifiers xsi:type="ecore:EClass" name="CodingPreTask" abstract="true" eSuperTypes="../../ExperimentOntology/model/experimentOntology.ecore#//operation/taskComposition/preTaskComposition/PreTask"/>
+    <eClassifiers xsi:type="ecore:EClass" name="GenericCodingTask" eSuperTypes="#//tasks/CodingPreTask"/>
+    <eClassifiers xsi:type="ecore:EClass" name="CodingPreTask" abstract="true" eSuperTypes="../../ExperimentOntology/model/experimentOntology.ecore#//operation/taskComposition/MainTask"/>
     <eClassifiers xsi:type="ecore:EClass" name="TrainingClass" eSuperTypes="#//tasks/CodingPreTask"/>
-    <eClassifiers xsi:type="ecore:EClass" name="PilotTask" eSuperTypes="#//tasks/CodingPreTask #//tasks/ConventionalCodingTask"/>
-    <eClassifiers xsi:type="ecore:EClass" name="ExperimentalCodingTask" eSuperTypes="#//tasks/ConventionalCodingTask #//tasks/CodingTask"/>
     <eClassifiers xsi:type="ecore:EEnum" name="CodingTaskTypes">
       <eLiterals name="maintenance"/>
       <eLiterals name="writing" value="1"/>
@@ -54,7 +51,7 @@
       <eLiterals name="debbuing" value="5"/>
       <eLiterals name="design" value="6"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="QuestionarieOnly" eSuperTypes="#//tasks/CodingTask #//tasks/CodingPreTask">
+    <eClassifiers xsi:type="ecore:EClass" name="QuestionarieOnly" eSuperTypes="#//tasks/CodingPreTask">
       <eStructuralFeatures xsi:type="ecore:EReference" name="questionnaire" lowerBound="1"
           eType="#//apparatus/Questionnaire"/>
     </eClassifiers>
@@ -162,10 +159,7 @@
       <eLiterals name="description" value="3"/>
       <eLiterals name="others" value="4"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="TaskRelated" abstract="true">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="1"
-          upperBound="-1" eType="#//tasks/CodingTask"/>
-    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TaskRelated" abstract="true"/>
     <eClassifiers xsi:type="ecore:EClass" name="Question" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EReference" name="enunciation" lowerBound="1"
           eType="#//apparatus/QuestionContent" containment="true"/>

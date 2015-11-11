@@ -324,10 +324,6 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="characteristic" lowerBound="1"
           upperBound="-1" eType="#//basement/Characteristic"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="PreExecutionPlan">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="pretask" lowerBound="1"
-          eType="#//operation/taskComposition/preTaskComposition/PreTask" containment="true"/>
-    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Context">
       <eStructuralFeatures xsi:type="ecore:EReference" name="provided" upperBound="-1"
           eType="#//planning/Artifact"/>
@@ -339,13 +335,17 @@
     <eClassifiers xsi:type="ecore:EClass" name="ExecutionPlanDescription">
       <eStructuralFeatures xsi:type="ecore:EReference" name="plan" lowerBound="1"
           eType="#//operation/ExecutionPlan" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="prePlan" eType="#//operation/PreExecutionPlan"
-          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="prePlan" lowerBound="1"
+          eType="#//operation/PreExecutionPlan" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ContextRelatedTask" abstract="true"
         eSuperTypes="#//basement/Nameable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="context" eType="#//operation/Context"
           containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PreExecutionPlan">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="1"
+          eType="#//operation/taskComposition/MainTask" containment="true"/>
     </eClassifiers>
     <eSubpackages name="taskComposition" nsURI="taskComposition" nsPrefix="taskComposition">
       <eClassifiers xsi:type="ecore:EClass" name="MainTask" abstract="true" eSuperTypes="#//operation/ContextRelatedTask"/>
@@ -368,30 +368,6 @@
         <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="1"
             eType="#//operation/taskComposition/MainTask" containment="true"/>
       </eClassifiers>
-      <eSubpackages name="preTaskComposition" nsURI="preTaskComposition" nsPrefix="preTaskComposition">
-        <eClassifiers xsi:type="ecore:EClass" name="PreTask" abstract="true" eSuperTypes="#//operation/ContextRelatedTask"/>
-        <eClassifiers xsi:type="ecore:EClass" name="Sequence" eSuperTypes="#//operation/taskComposition/preTaskComposition/PreTask">
-          <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="1"
-              upperBound="-1" eType="#//operation/taskComposition/preTaskComposition/PreTask"
-              containment="true"/>
-        </eClassifiers>
-        <eClassifiers xsi:type="ecore:EClass" name="Random" eSuperTypes="#//operation/taskComposition/preTaskComposition/PreTask">
-          <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="1"
-              upperBound="-1" eType="#//operation/taskComposition/preTaskComposition/PreTask"
-              containment="true"/>
-        </eClassifiers>
-        <eClassifiers xsi:type="ecore:EClass" name="If" eSuperTypes="#//operation/taskComposition/preTaskComposition/PreTask">
-          <eStructuralFeatures xsi:type="ecore:EReference" name="elseif" eType="#//operation/taskComposition/preTaskComposition/ElseIf"
-              containment="true"/>
-          <eStructuralFeatures xsi:type="ecore:EAttribute" name="condition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-          <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="1"
-              eType="#//operation/taskComposition/preTaskComposition/PreTask" containment="true"/>
-        </eClassifiers>
-        <eClassifiers xsi:type="ecore:EClass" name="ElseIf">
-          <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="1"
-              eType="#//operation/taskComposition/preTaskComposition/PreTask" containment="true"/>
-        </eClassifiers>
-      </eSubpackages>
     </eSubpackages>
   </eSubpackages>
   <eSubpackages name="basement" nsURI="basement" nsPrefix="basement">
